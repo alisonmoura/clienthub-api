@@ -19,6 +19,10 @@ module.exports = class UserController {
     static async findAll(req, res) {
         res.json(UserService.findAll())
     }
+    
+    static async findById(req, res) {
+        res.json(UserService.findById(req.params.id))
+    }
 
     static async create(req, res) {
         res.json(UserService.create(req.body))

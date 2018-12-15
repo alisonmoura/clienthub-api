@@ -17,6 +17,10 @@ module.exports = class UserService {
         return await User.find({});
     }
 
+    static async findById(id) {
+        return await User.findById(id);
+    }
+
     static async create(user) {
         return await User.create(user);
     }
