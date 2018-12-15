@@ -2,14 +2,12 @@
 
 const Express = require('express')
 const BodyParser = require('body-parser')
-const Mongoose = require('mongoose')
 const Cors = require('cors')
 const DataBaseConnection = require('./connection/DataBaseConnection')
+const PORT = process.env.PORT || 3000
 
 const app = new Express();
 
-//Conexão com o DB
-// Mongoose.connect('mongodb://clienthub:clienthub123@ds229474.mlab.com:29474/clienthub')
 try {
     DataBaseConnection.connect()
 } catch (error) {
@@ -36,4 +34,6 @@ new User()
 const UserRouter = require('./router/UserRouter')
 new UserRouter(app)
 
-app.listen(3000) // "liga" a API na porta 3000
+console.log('API rodando na porta: ' + PORT)
+
+app.listen(PORT)
