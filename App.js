@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 3000
 
 const app = new Express();
 
+console.log("INICIANDO A API...")
+
 process.on('unhandledRejection', error => {
     console.log('unhandledRejection:', error.message);
 });

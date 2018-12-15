@@ -1,7 +1,7 @@
 'use strict'
 
 const Mongoose = require('mongoose')
-const config = require('./../config')
+if(!process.env.IS_HEROKU) const config = require('./../config')
 
 module.exports = class DataBaseConnection {
     static async connect() {
