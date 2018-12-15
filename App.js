@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000
 
 const app = new Express();
 
+process.on('unhandledRejection', error => {
+    console.log('unhandledRejection:', error.message);
+});
+
 try {
     DataBaseConnection.connect()
 } catch (error) {
@@ -18,11 +22,11 @@ app.use(BodyParser.json())
 app.use(Cors())
 
 // FILTER
-app.options('*', function(req, res){
+app.options('*', function (req, res) {
     res.send("OK");
 })
 
-app.get('/', function(req, res){
+app.get('/', function (req, res) {
     res.send("API ClientHub v1.0.0")
 })
 
