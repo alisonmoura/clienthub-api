@@ -7,8 +7,9 @@ module.exports = class UserController {
     static async auth(req, res){
         try {
             let user = await UserService.auth(req.body)
+            console.log(JSON.stringify(user))
             if(user) {
-                res.send("Usuário encontrado")
+                res.json({ name: user.name, email: user.email })
             }else res.status(400).send("Usuário não encontrado!")
         } catch (error) {
             console.log(`UserController: erro ao autenticar usuário: ${error}`)

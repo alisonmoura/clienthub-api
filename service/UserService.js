@@ -7,7 +7,7 @@ module.exports = class UserService {
 
     static async auth(user) {
         try {
-            return await User.find({ email: user.email, password: user.password })
+            return await User.findOne({ email: user.email, password: user.password })
         } catch (error) {
             throw { message: `UserService: erro ao autenticar: ${error}` }
         }
